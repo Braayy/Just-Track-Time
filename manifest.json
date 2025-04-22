@@ -1,0 +1,10 @@
+{
+  "id": "just-track-time",
+  "name": "Just Track Time",
+  "version": "0.0.1",
+  "minAppVersion": "0.15.0",
+  "description": "A simple time tracker for obsdian that stores data with SQLite ",
+  "author": "Braayy",
+  "authorUrl": "https://github.com/braayy",
+  "isDesktopOnly": true
+}

@@ -1,0 +1,91 @@
+.time-tracker-view {
+  height: 100%;
+}
+
+.tt-header {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 50%;
+  min-width: 300px;
+}
+
+.tt-header button {
+  cursor: pointer;
+}
+
+.tt-header__buttons {
+  display: flex;
+  gap: 10px;
+  --icon-size: 40px;
+}
+
+.tt-header input {
+  width: 100%;
+}
+
+.tt-period-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px
+}
+
+.tt-period-selector p {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.tt-period-selector button {
+  cursor: pointer;
+}
+
+.tt-trackings {
+  margin: 0 auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tt-trackings table {
+  width: 100%;
+  display: block grid;
+  grid-template-columns: auto 1fr auto;
+}
+
+.tt-trackings tbody,
+.tt-trackings tr {
+  grid-column: 1 / -1;
+  display: block grid;
+  grid-template-columns: subgrid;
+}
+
+.tt-tracking td:nth-child(2) {
+  text-align: center;
+}
+
+.tt-tracking td:nth-child(1) {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.tt-tracking td:nth-child(3) {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.tt-tracking td {
+  padding: 5px;
+  transition: background .1s;
+}
+
+.tt-tracking:hover td {
+  background: #EEEEEE;
+  cursor: pointer;
+}
+
+.tt-edit-tracking-modal__buttons div {
+  justify-content: space-around;
+}
