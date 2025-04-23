@@ -1,5 +1,10 @@
 .time-tracker-view {
   height: 100%;
+  container-type: inline-size;
+}
+
+.time-tracker-view p {
+  margin: 0;
 }
 
 .tt-header {
@@ -27,6 +32,8 @@
 }
 
 .tt-period-selector {
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   gap: 10px
@@ -47,6 +54,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.tt-trackings__total-duration {
+  margin-bottom: 20px !important;
 }
 
 .tt-trackings table {
@@ -88,4 +99,14 @@
 
 .tt-edit-tracking-modal__buttons div {
   justify-content: space-around;
+}
+
+@container (max-width: 500px) {
+  .tt-header {
+    width: 90%;
+  }
+
+  .tt-trackings {
+    width: 90%;
+  }
 }

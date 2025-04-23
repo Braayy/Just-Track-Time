@@ -108,14 +108,21 @@ function Trackings({ trackings }: TrackingsProps) {
     return () => clearInterval(interval);
   }, [time]);
 
+  const totalDuration = formatDuration(trackings.reduce((acc, cur) => {
+    return acc + (cur.endTime?.valueOf() || new Date().valueOf()) - cur.startTime.valueOf();
+  }, 0));
+
   return (
-    <table>
-      <tbody>
-        {trackings.map((tracking) => (
-          <TrackingRow key={tracking.id} tracking={tracking} />
-        ))}
-      </tbody>
-    </table>
+    <>
+      <p className="tt-trackings__total-duration">{totalDuration}</p>
+      <table>
+        <tbody>
+          {trackings.map((tracking) => (
+            <TrackingRow key={tracking.id} tracking={tracking} />
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 }
 
@@ -213,6 +220,17 @@ class EditTrackingModal extends Modal {
       })
       .addButton((button) => {
         button
+          .setButtonText("Resume")
+          .onClick(() => {
+            plugin.database.endLastTracking();
+            plugin.database.createTracking(tracking.description);
+            plugin.database.save().then(() => syncTrackings());
+
+            this.close();
+          });
+      })
+      .addButton((button) => {
+        button
           .setButtonText("Confirm")
           .setCta()
           .onClick(() => {
@@ -233,6 +251,5 @@ class EditTrackingModal extends Modal {
       .settingEl;
 
     buttonsEl.children.item(0)?.remove();
-    console.log(buttonsEl);
   }
 }
